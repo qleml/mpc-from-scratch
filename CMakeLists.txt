@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(mpc VERSION 0.1.0 LANGUAGES C CXX)
 
-add_executable(mpc main.cpp)
+add_subdirectory(src/physics)
+add_subdirectory(src/controllers)
+add_subdirectory(src/main)
 
 include(CTest)
 enable_testing()
