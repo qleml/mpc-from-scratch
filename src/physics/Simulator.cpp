@@ -23,11 +23,15 @@ void Simulator::run()
 
     Logger logger;
 
+    int force = 10;
+
     while(_time < _duration)
     {
         std::vector<double> state = _physicsObj.getState();
         logger.saveState(state, _time);
-        _physicsObj.update(0, _dt);
+        if(_time > 10.0) force = 0;
+    
+        _physicsObj.update(force, _dt);
         _time += _dt;
     }
     std::cout << "Simulation complete." << std::endl; 
