@@ -1,0 +1,3 @@
+Pointers: Use * for declaration, & to get address, and -> to call member functions.
+References: Use & for declaration, and call member functions directly.
+Function Arguments: Choose between value, pointer, or reference based on whether you need a copy, address, or alias.
