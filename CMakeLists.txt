@@ -5,6 +5,7 @@ project(mpc VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_subdirectory(src/utils)
 add_subdirectory(src/physics)
 add_subdirectory(src/controllers)
 add_subdirectory(src/main)
