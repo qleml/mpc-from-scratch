@@ -2,11 +2,13 @@
 #define SIMULATOR_H
 
 #include "PhysicsObject.h"
+#include "Config.h"
+#include <SFML/Graphics.hpp>
 
 class Simulator
 {
 public:
-    Simulator(PhysicsObject& physicsObj, double dt = 0.1, double duration = 10.0);
+    Simulator(PhysicsObject& physicsObj, SimulatorConfig config);
     ~Simulator();
     void run();
 
@@ -15,6 +17,11 @@ private:
     double _dt;
     double _time;
     double _duration;
+    int _windowWidth;
+    int _windowHeight;
+    double _noiseMean;
+    double _noiseStdDev;
+    sf::RenderWindow _window;
 };
 
 #endif // SIMULATOR_H
