@@ -3,6 +3,7 @@ add_library(
     STATIC PhysicsObject.cpp 
     MassSpringDamper.cpp 
     Simulator.cpp
+    Renderer.cpp
     )
 
 set(SFML_DIR "/usr/local/lib/cmake/SFML")

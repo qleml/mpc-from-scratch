@@ -13,11 +13,10 @@ public:
     Simulator(PhysicsObject& physicsObj, SimulatorConfig config);
     ~Simulator();
     void run();
+    void stopSimThread();
+    void simThread();
 
 private:
-
-    void _computeManualDisturbance(sf::Vector2i mousePos, double &force, std::vector<double> state);
-
     PhysicsObject& _physicsObj;
     double _dt;
     double _time;
@@ -31,8 +30,6 @@ private:
 
     std::thread _simThread;
     bool _running;
-
-    sf::RenderWindow _window;
 
     Logger _logger;
 };

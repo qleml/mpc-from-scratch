@@ -18,6 +18,7 @@ struct SimulatorConfig {
     double duration = 100.0;
     double noiseMean = 0.0;
     double noiseStdDev = 1.0;
+    bool gui = true;
 };
 
 #endif // CONFIG_H
