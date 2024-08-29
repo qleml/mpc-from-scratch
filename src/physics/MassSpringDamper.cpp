@@ -2,6 +2,8 @@
 #include <iostream>
 #include <mutex>
 #include <vector>
+#include <cassert>
+
 
 MassSpringDamper::MassSpringDamper(double mass, double springConstant, double dampingCoefficient, std::vector<double> state)
     : mass(mass), springConstant(springConstant), dampingCoefficient(dampingCoefficient)
@@ -28,18 +30,21 @@ void MassSpringDamper::update(double force, double dt)
 
 void MassSpringDamper::setMass(double mass)
 {
-    std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+    assert(mass > 0);
+    std::lock_guard<std::mutex> lock(mtx);
     this->mass = mass;
 }
 
 void MassSpringDamper::setSpringConstant(double springConstant)
 {
-    std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+    assert(springConstant >= 0);
+    std::lock_guard<std::mutex> lock(mtx);
     this->springConstant = springConstant;
 }
 
 void MassSpringDamper::setDampingCoefficient(double dampingCoefficient)
 {
+    assert(dampingCoefficient >= 0);
     std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
     this->dampingCoefficient = dampingCoefficient;
 }
